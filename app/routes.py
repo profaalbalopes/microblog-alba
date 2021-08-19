@@ -11,3 +11,7 @@ def index():
 @app.route('/contato')
 def contato():
     return render_template('contato.html')
+
+@app.route('/outra')
+def sobre():
+    return "Aqui vai ter alguma coisa sobre o site"
