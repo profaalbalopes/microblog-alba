@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<form action="/registrar" method="post">
+    {{ form.csrf_token }}
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Usuário:</label> 
+        <div class="col-sm-10">
+        {{ form.usuario(class="form-control") }}<br/> 
+    </div>
+    </div>
+
+    <div class="row mb-3">
+    <label  class="col-sm-2 col-form-label">E-mail: </label>
+    <div class="col-sm-10">
+        {{ form.email(class="form-control" )}}
+    <br/>
+    </div>
+    </div>
+
+    <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Senha:</label> 
+    <div class="col-sm-10">
+    {{form.senha(class="form-control" )}}<br/>
+    </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Confirmar Senha:</label> 
+        <div class="col-sm-10">
+            {{ form.confirmarsenha(class="form-control")}}
+        <br/>
+        </div>
+    </div>
+    {{ form.registrar(class="btn btn-primary")}}
+</form>
+
+{% endblock %}

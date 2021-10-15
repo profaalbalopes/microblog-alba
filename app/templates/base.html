@@ -24,6 +24,9 @@
             <li class="nav-item">
               <a class="nav-link" href="/contato">Contato</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
             <!--
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,6 +51,16 @@
           </form>
         </div>
       </nav>
+      {% set mensagens = get_flashed_messages(with_categories=true) %}
+      {% if mensagens %}
+          <div  >
+              <ul>
+              {% for cat, msg in mensagens %}
+                  <li class="alert alert-{{cat}}" role="alert">{{ msg }}</li>
+              {% endfor %}
+              </ul>
+          </div>
+      {% endif %}
 
     {% block conteudo %}
     {% endblock %}    

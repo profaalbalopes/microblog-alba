@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block conteudo %}
+
+<form action="/login" method="post">
+    {{ form.csrf_token }}
+    <label for="usuario" class="form-label">Usuario:</label> 
+    {{ form.usuario(class="form-control", placeholder="Nome de usuário") }}<br/>
+    <label for="senha" class="form-label">Senha:</label> 
+    {{ form.senha(class="form-control") }} <br/>
+    {{ form.entrar(class="btn btn-primary")}}
+</form>
+
+
+<p>Clique aqui para <a href="/formregistrar">Registrar-se</a></p>
+
+{% endblock %}
