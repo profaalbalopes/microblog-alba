@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+    {% block conteudo %}
+        <table class="table">
+            <tr>
+                <td>Id</td>
+                <td>Nome</td>
+                <td>E-mail</td>
+                <td>Excluir</td>
+            </tr>
+        {% for u in usuarios %}
+            <tr>
+                <td>{{u.id}}</td>
+                <td>{{u.nome}}</td>
+                <td>{{u.email}}</td>
+                <td><a href="/excluir_usuario/{{u.id}}">x</a></td>
+
+
+            </tr>    
+        {%endfor%}
+        </table>
+    
+    {% endblock %}

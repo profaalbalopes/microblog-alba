@@ -1,19 +1,18 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+#from flask_login import login_manager
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "minha-chave-secreta"
 
-#CONEXÃO COM O BD
-usuario = "profaa16_teste"
-senha = "minhasenhasecreta"
-servidor = "profaalbalopes.info"
-banco = "profaa16_psi21_alba"
-
-conexao = "mysql://{0}:{1}@{2}/{3}".format(usuario, senha, servidor, banco)
+conexao = "sqlite:///meubanco.db"
 app.config['SQLALCHEMY_DATABASE_URI'] = conexao
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+#login_manager = LoginManager()
+#login_manager.init_app(app)
 
 from app import routes
