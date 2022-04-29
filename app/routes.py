@@ -22,7 +22,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         usuario = Usuario.query.filter_by(email=form.usuario.data).first()
-        if usuario.senha == form.senha.data:
+        if usuario and usuario.senha == form.senha.data:
             flash('O login está correto. ', "warning")
         else:
             flash('O login está incorreto. ', "danger")
